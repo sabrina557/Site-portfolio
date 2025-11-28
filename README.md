@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Portfolio – Sabrina Bouzidi
 
-## Getting Started
+Interface web moderne construite avec Next.js pour présenter le profil professionnel, les projets et les moyens de contact de Sabrina Bouzidi.
 
-First, run the development server:
+## Aperçu
+
+- **Structure App Router** avec des pages dédiées (`Accueil`, `À propos`, `Projets`, `Contact`).
+- **Design responsive** inspiré d'une approche carte/section mettant l'accent sur la lisibilité.
+- **Formulaire de contact** connecté à Formspree pour la gestion des messages.
+- **Composants réutilisables** (`ProjectCard`, navigation partagée) pour faciliter l'évolution du site.
+
+## Pile technique
+
+- [Next.js 16](https://nextjs.org/) & [React 19](https://react.dev/)
+- [Tailwind CSS v4 (préversion)](https://tailwindcss.com/) via `@tailwindcss/postcss`
+- [Formspree](https://formspree.io/) pour la soumission du formulaire de contact
+
+## Prise en main
 
 ```bash
+# Installer les dépendances
+npm install
+
+# Lancer le serveur de développement
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Construire pour la production
+npm run build
+
+# Prévisualiser la version de production
+npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- L'application démarre sur `http://localhost:3000` (ou sur un port libre si 3000 est occupé).
+- La plupart des pages se trouvent dans le répertoire `app/` (App Router Next.js).
+- Les ressources statiques (images de projets, photo de profil) sont stockées dans `public/`.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Structure du projet
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/
+	layout.js        # Layout global (header, footer, métadonnées)
+	page.js          # Page d'accueil et section hero
+	about/page.js    # Présentation du profil
+	projects/page.js # Grille des projets + cartes
+	contact/page.js  # Formulaire Formspree et informations de contact
+components/
+	ProjectCard.js   # Carte projet réutilisable
+	Navbar.js        # Navigation (si activée dans le layout)
+public/
+	projects/        # Visuels des projets
+```
 
-## Learn More
+## Points de design
 
-To learn more about Next.js, take a look at the following resources:
+- Palette lumineuse avec accents bleus (`--accent`) permettant un fort contraste (`#111`).
+- Titres harmonisés (`h1` à `h4`) avec `Inter` et tailles responsives via `clamp`.
+- Sections encartées (`card-surface`) offrant profondeur et lisibilité sur grand écran.
+- Formulaire modernisé : champs arrondis, focus visibles, bouton gradient.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Déploiement
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Le projet est déployé et hébergé sur Vercel, une plateforme optimisée pour les applications Next.js.
 
-## Deploy on Vercel
+🔗 Lien du site en ligne :
+👉 Deployment
+site-portfolio-sdw8n4ttu-sabrinas-projects-d6fb8bf5.vercel.app
+👉 Domains
+site-portfolio-sigma-sooty.vercel.app
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Le déploiement a été effectué via Vercel après liaison du dépôt GitHub.
+La plateforme se charge automatiquement de :
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+lancer la commande de build (next build)
+
+gérer la sortie .next
+
+réexécuter un déploiement à chaque git push
+
+Les variables d'environnement nécessaires (par exemple : clé Formspree) peuvent être configurées depuis Vercel → Project Settings → Environment Variables.
+
+
